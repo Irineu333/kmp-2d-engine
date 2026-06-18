@@ -1,10 +1,12 @@
 package com.neoutils.skiko
 
 import com.neoutils.core.Color
+import com.neoutils.core.Rect
 import com.neoutils.core.Renderer
 import com.neoutils.core.Vec2
 import org.jetbrains.skia.Canvas
 import org.jetbrains.skia.Paint
+import org.jetbrains.skia.PaintMode
 
 class SkikoRenderer : Renderer {
 
@@ -25,6 +27,29 @@ class SkikoRenderer : Renderer {
         val baseline = position.y - font.metrics.ascent
 
         canvas.drawString(text, position.x, baseline, font, paint)
+    }
+
+    override fun drawRect(
+        rect: Rect,
+        color: Color,
+        fill: Boolean
+    ) {
+        val canvas = canvas ?: return
+
+        val paint = paintFor(color).apply {
+            mode = if (fill) PaintMode.FILL else PaintMode.STROKE
+            strokeWidth = 1f
+        }
+
+        canvas.drawRect(
+            org.jetbrains.skia.Rect.makeXYWH(
+                rect.position.x,
+                rect.position.y,
+                rect.size.width,
+                rect.size.height,
+            ),
+            paint,
+        )
     }
 
     private fun paintFor(color: Color): Paint {

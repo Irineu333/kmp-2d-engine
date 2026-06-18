@@ -7,4 +7,10 @@ interface Renderer {
         size: Float,
         color: Color
     )
+
+    fun drawRect(
+        rect: Rect,
+        color: Color,
+        fill: Boolean = false,
+    )
 }

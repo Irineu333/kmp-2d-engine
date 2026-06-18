@@ -25,6 +25,7 @@ fun main() {
                     )
                 },
             )
+            add(BoundsOverlay())
         },
     )
 

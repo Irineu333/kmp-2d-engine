@@ -6,7 +6,7 @@ import org.jetbrains.skia.Canvas
 import org.jetbrains.skiko.SkikoRenderDelegate
 
 class SceneRenderDelegate(
-    private val scene: SceneTree
+    private val scene: SceneTree,
 ) : SkikoRenderDelegate {
 
     private val renderer = SkikoRenderer()
