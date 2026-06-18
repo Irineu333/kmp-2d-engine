@@ -11,6 +11,8 @@ class SceneRenderDelegate(
 
     private val renderer = SkikoRenderer()
 
+    private val textMeasurer = SkikoTextMeasurer()
+
     override fun onRender(
         canvas: Canvas,
         width: Int,
@@ -22,6 +24,9 @@ class SceneRenderDelegate(
         renderer.canvas = canvas
 
         scene.size = Size(width.toFloat(), height.toFloat())
+        scene.textMeasurer = textMeasurer
+
+        scene.process()
 
         scene.render(renderer)
     }

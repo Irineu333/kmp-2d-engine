@@ -15,5 +15,7 @@ open class Node {
         children.add(node)
     }
 
+    open fun onProcess() {}
+
     open fun onDraw(renderer: Renderer) {}
 }
