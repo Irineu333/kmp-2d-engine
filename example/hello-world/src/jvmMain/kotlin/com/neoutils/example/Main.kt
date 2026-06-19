@@ -1,7 +1,6 @@
 package com.neoutils.example
 
 import com.neoutils.core.*
-import com.neoutils.greeting
 import com.neoutils.skiko.SceneRenderDelegate
 import org.jetbrains.skiko.SkiaLayer
 import org.jetbrains.skiko.SkiaLayerRenderDelegate

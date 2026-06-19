@@ -1,0 +1,6 @@
+[versions]
+kotlin = "2.4.0"
+skiko = "0.148.2"
+
+[plugins]
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
