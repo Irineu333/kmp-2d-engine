@@ -12,6 +12,10 @@ class SkikoRenderer : Renderer {
 
     var canvas: Canvas? = null
 
+    // Single reusable Paint: native Skia objects are not GC-managed, so allocating
+    // one per draw call leaked native memory. Reused on the render thread only.
+    private val paint = Paint().apply { isAntiAlias = true }
+
     override fun drawText(
         text: String,
         position: Vec2,
@@ -20,7 +24,10 @@ class SkikoRenderer : Renderer {
     ) {
         val canvas = canvas ?: return
 
-        val paint = paintFor(color)
+        val paint = paint.apply {
+            this.color = color.toSkiaArgb()
+            mode = PaintMode.FILL
+        }
 
         val font = fontFor(size)
 
@@ -36,7 +43,8 @@ class SkikoRenderer : Renderer {
     ) {
         val canvas = canvas ?: return
 
-        val paint = paintFor(color).apply {
+        val paint = paint.apply {
+            this.color = color.toSkiaArgb()
             mode = if (fill) PaintMode.FILL else PaintMode.STROKE
             strokeWidth = 1f
         }
@@ -60,7 +68,8 @@ class SkikoRenderer : Renderer {
     ) {
         val canvas = canvas ?: return
 
-        val paint = paintFor(color).apply {
+        val paint = paint.apply {
+            this.color = color.toSkiaArgb()
             mode = if (fill) PaintMode.FILL else PaintMode.STROKE
             strokeWidth = 1f
         }
@@ -76,19 +85,13 @@ class SkikoRenderer : Renderer {
     ) {
         val canvas = canvas ?: return
 
-        val paint = paintFor(color).apply {
+        val paint = paint.apply {
+            this.color = color.toSkiaArgb()
             mode = PaintMode.STROKE
             strokeWidth = width
         }
 
         canvas.drawLine(start.x, start.y, end.x, end.y, paint)
-    }
-
-    private fun paintFor(color: Color): Paint {
-        return Paint().apply {
-            this.color = color.toSkiaArgb()
-            isAntiAlias = true
-        }
     }
 
     private fun Color.toSkiaArgb(): Int {
