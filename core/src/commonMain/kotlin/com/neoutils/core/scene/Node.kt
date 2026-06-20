@@ -6,6 +6,7 @@ import com.neoutils.core.input.InputEvent
 open class Node {
 
     var tree: SceneTree? = null
+        internal set
 
     var parent: Node? = null
         private set
