@@ -11,8 +11,7 @@ import com.neoutils.core.scene.Node2D
 class Paddle : Node2D() {
 
     var side: Side = Side.LEFT
-    var upKey: Key = Key.W
-    var downKey: Key = Key.S
+    var controller: PaddleController = HumanController(Key.W, Key.S)
     var color: Color = Color.WHITE
 
     private val halfWidth get() = WIDTH / 2f
@@ -26,11 +25,7 @@ class Paddle : Node2D() {
     override fun onProcess(delta: Float) {
         val viewport = tree?.size ?: return
 
-        var y = position.y
-        tree?.input?.let { input ->
-            if (input.isPressed(upKey)) y -= SPEED * delta
-            if (input.isPressed(downKey)) y += SPEED * delta
-        }
+        val y = position.y + controller.direction(this) * SPEED * delta
 
         // Re-anchor x every frame so the right paddle tracks the edge on resize.
         position = Vec2(

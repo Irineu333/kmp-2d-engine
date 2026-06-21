@@ -1,8 +1,10 @@
 package com.neoutils.core.scene
 
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertNotSame
+import kotlin.test.assertNull
 import kotlin.test.assertSame
 
 class SceneManagerTest {
@@ -47,6 +49,33 @@ class SceneManagerTest {
         val second = manager.current
 
         assertNotSame(first, second)
+    }
+
+    @Test
+    fun change_withArgs_propagatesPayloadToScene() {
+        val manager = SceneManager(factories)
+
+        manager.change("game", args = "payload")
+
+        assertEquals("payload", manager.current.args)
+    }
+
+    @Test
+    fun change_withoutArgs_leavesArgsNull() {
+        val manager = SceneManager(factories)
+
+        manager.change("game")
+
+        assertNull(manager.current.args)
+    }
+
+    @Test
+    fun changeScene_fromTree_forwardsArgsToManager() {
+        val manager = SceneManager(factories)
+
+        manager.current.changeScene("game", args = 42)
+
+        assertEquals(42, manager.current.args)
     }
 
     @Test

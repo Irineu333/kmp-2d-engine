@@ -1,6 +1,5 @@
 package com.neoutils.example.pong
 
-import com.neoutils.core.input.Key
 import com.neoutils.core.scene.BoundsOverlay
 import com.neoutils.core.scene.FpsOverlay
 import com.neoutils.dsl.add
@@ -12,7 +11,7 @@ import com.neoutils.example.pong.game.ReturnToMenu
 import com.neoutils.example.pong.game.ScoreBoard
 import com.neoutils.example.pong.game.Side
 import com.neoutils.example.pong.game.VelocityOverlay
-import com.neoutils.example.pong.menu.MenuController
+import com.neoutils.example.pong.menu.Menu
 import com.neoutils.example.pong.menu.MenuHint
 import com.neoutils.example.pong.menu.MenuTitle
 import com.neoutils.skiko.runSkikoWindow
@@ -23,8 +22,11 @@ fun main() = runSkikoWindow(
     scene("menu") {
         add<Background>()
         add<MenuTitle>()
+        add<Menu>()
         add<MenuHint>()
-        add<MenuController>()
+
+        // debug
+        add<BoundsOverlay>()
     }
 
     scene("pong") {
@@ -32,13 +34,9 @@ fun main() = runSkikoWindow(
         add<Net>()
         add<Paddle> {
             side = Side.LEFT
-            upKey = Key.W
-            downKey = Key.S
         }
         add<Paddle> {
             side = Side.RIGHT
-            upKey = Key.UP
-            downKey = Key.DOWN
         }
         add<Ball>()
         add<ScoreBoard> {

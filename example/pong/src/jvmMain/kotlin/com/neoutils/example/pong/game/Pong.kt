@@ -1,5 +1,6 @@
 package com.neoutils.example.pong.game
 
+import com.neoutils.core.input.Key
 import com.neoutils.core.math.Vec2
 import com.neoutils.core.scene.Node
 
@@ -16,6 +17,18 @@ class Pong : Node() {
 
     override fun onReady() {
         collect(tree?.root ?: return)
+        applyMode(tree?.args as? GameMode ?: GameMode.PLAYER_VS_PLAYER)
+    }
+
+    private fun applyMode(mode: GameMode) {
+        leftPaddle?.controller = when (mode) {
+            GameMode.AI_VS_AI -> AIController()
+            else -> HumanController(Key.W, Key.S)
+        }
+        rightPaddle?.controller = when (mode) {
+            GameMode.PLAYER_VS_PLAYER -> HumanController(Key.UP, Key.DOWN)
+            else -> AIController()
+        }
     }
 
     override fun onProcess(delta: Float) {

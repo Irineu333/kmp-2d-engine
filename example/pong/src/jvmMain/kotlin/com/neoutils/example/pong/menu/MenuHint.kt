@@ -7,8 +7,8 @@ import com.neoutils.core.scene.Label
 class MenuHint : Label() {
 
     override fun onReady() {
-        text = "Press ENTER to start"
-        fontSize = 28f
+        text = "UP/DOWN to navigate • ENTER to select"
+        fontSize = 16f
         color = Color.GRAY
     }
 
@@ -16,8 +16,13 @@ class MenuHint : Label() {
         val viewport = tree?.size ?: return
         val size = getSize()
         position = Vec2(
-            x = viewport.width / 2f - size.width / 2f,
-            y = viewport.height / 2f + size.height,
+            x = (viewport.width - size.width) / 2f,
+            y = viewport.height / 2f + OFFSET,
         )
+    }
+
+    companion object {
+        // Sits below the viewport-centred options block.
+        private const val OFFSET = 70f
     }
 }

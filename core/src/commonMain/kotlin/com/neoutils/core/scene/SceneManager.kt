@@ -6,13 +6,16 @@ class SceneManager(
     var current: SceneTree = build(factories.keys.firstOrNull() ?: error("No scenes registered"))
         private set
 
-    fun change(name: String) {
-        current = build(name)
+    fun change(name: String, args: Any? = null) {
+        current = build(name, args)
     }
 
-    private fun build(name: String): SceneTree {
+    private fun build(name: String, args: Any? = null): SceneTree {
         val factory = factories[name] ?: error("Scene not found: $name")
-        return factory.create().also { it.manager = this }
+        return factory.create().also {
+            it.manager = this
+            it.args = args
+        }
     }
 
     companion object {

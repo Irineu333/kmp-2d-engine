@@ -17,10 +17,13 @@ class SceneTree(
 
     var manager: SceneManager? = null
 
+    /** Payload passed to this scene via [changeScene]; null for the initial scene. */
+    var args: Any? = null
+
     val input: InputState = InputState()
 
-    fun changeScene(name: String) {
-        manager?.change(name)
+    fun changeScene(name: String, args: Any? = null) {
+        manager?.change(name, args)
     }
 
     fun ready() {
