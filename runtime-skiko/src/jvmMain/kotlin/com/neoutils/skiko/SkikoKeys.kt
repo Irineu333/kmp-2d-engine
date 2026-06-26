@@ -47,5 +47,17 @@ internal fun keyOf(awtKeyCode: Int): Key = when (awtKeyCode) {
     KeyEvent.VK_7 -> Key.DIGIT_7
     KeyEvent.VK_8 -> Key.DIGIT_8
     KeyEvent.VK_9 -> Key.DIGIT_9
+    KeyEvent.VK_F1 -> Key.F1
+    KeyEvent.VK_F2 -> Key.F2
+    KeyEvent.VK_F3 -> Key.F3
+    KeyEvent.VK_F4 -> Key.F4
+    KeyEvent.VK_F5 -> Key.F5
+    KeyEvent.VK_F6 -> Key.F6
+    KeyEvent.VK_F7 -> Key.F7
+    KeyEvent.VK_F8 -> Key.F8
+    KeyEvent.VK_F9 -> Key.F9
+    KeyEvent.VK_F10 -> Key.F10
+    KeyEvent.VK_F11 -> Key.F11
+    KeyEvent.VK_F12 -> Key.F12
     else -> Key.UNKNOWN
 }

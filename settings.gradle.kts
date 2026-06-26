@@ -19,6 +19,7 @@ rootProject.name = "kmp-engine"
 
 include(":core")
 include(":core-dsl")
+include(":core-debug")
 include(":runtime-skiko")
 include(":example:hello-world")
 include(":example:bouncing-ball")

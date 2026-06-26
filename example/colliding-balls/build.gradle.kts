@@ -26,6 +26,7 @@ kotlin {
             implementation(project(":core"))
             implementation(project(":runtime-skiko"))
             // No core-dsl on purpose: this example builds scenes with the plain core API.
+            implementation(project(":core-debug"))
         }
     }
 }

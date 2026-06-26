@@ -1,5 +1,6 @@
 package com.neoutils.example.pong
 
+import com.neoutils.debug.debug
 import com.neoutils.dsl.add
 import com.neoutils.dsl.game
 import com.neoutils.example.pong.game.*
@@ -14,6 +15,7 @@ fun pong() = game {
         add(::Menu)
         add(::MenuHint)
 
+        debug()
     }
 
     scene("pong") {
@@ -34,5 +36,9 @@ fun pong() = game {
         }
         add(::Pong)
         add(::ReturnToMenu)
+
+        debug {
+            add(::VelocityOverlay)
+        }
     }
 }

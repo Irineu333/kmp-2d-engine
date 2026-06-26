@@ -1,10 +1,12 @@
 package com.neoutils.example.colliding
 
 import com.neoutils.core.graphics.Color
-import com.neoutils.core.scene.BoundsOverlay
 import com.neoutils.core.scene.Node
 import com.neoutils.core.scene.SceneManager
 import com.neoutils.core.scene.SceneTree
+import com.neoutils.debug.DebugLayer
+import com.neoutils.debug.feature.BoundsFeature
+import com.neoutils.debug.feature.FpsFeature
 import com.neoutils.skiko.SkikoWindow
 
 fun main() {
@@ -16,8 +18,18 @@ fun main() {
     }
 
     root.add(BallCollider())
-    root.add(BoundsOverlay())
-    root.add(VelocityOverlay().apply { color = Color.YELLOW })
+
+    root.add(
+        DebugLayer().apply {
+            add(FpsFeature())
+            add(BoundsFeature())
+            add(
+                VelocityOverlay().apply {
+                    color = Color.YELLOW
+                }
+            )
+        }
+    )
 
     val manager = SceneManager.ofMain(SceneTree(root))
 

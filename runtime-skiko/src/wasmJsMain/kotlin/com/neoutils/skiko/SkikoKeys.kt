@@ -46,5 +46,17 @@ internal fun keyOf(code: String): Key = when (code) {
     "Digit7" -> Key.DIGIT_7
     "Digit8" -> Key.DIGIT_8
     "Digit9" -> Key.DIGIT_9
+    "F1" -> Key.F1
+    "F2" -> Key.F2
+    "F3" -> Key.F3
+    "F4" -> Key.F4
+    "F5" -> Key.F5
+    "F6" -> Key.F6
+    "F7" -> Key.F7
+    "F8" -> Key.F8
+    "F9" -> Key.F9
+    "F10" -> Key.F10
+    "F11" -> Key.F11
+    "F12" -> Key.F12
     else -> Key.UNKNOWN
 }

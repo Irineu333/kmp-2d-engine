@@ -15,7 +15,9 @@ O núcleo é **backend-agnostic**: desenha contra um `Renderer` abstrato — com
 - **Renderer abstrato** — backend trocável (Skiko padrão).
 - **DSL** — monta cenas nomeadas com `runSkikoWindow { scene(...) { add(::Node) { } } }` (a primeira cena registrada é a inicial). No JVM também há o atalho `add<Node>()` (via reflexão); para código multiplataforma/web use a forma com factory `add(::Node)`.
 - **Multi-cena** — registre várias cenas e troque em runtime com `tree.changeScene("nome")`.
-- **BoundsOverlay** — debug plugável; desenha os bounds dos nós sobre a cena.
+- **Debug plugável** — módulo `core-debug` opcional e desacoplado do `core`. `debug { }`
+  injeta um `DebugLayer` na cena com FPS (F1) e bounds (F2); cada feature liga/desliga
+  por atalho. Jogos adicionam as próprias features (subclasses de `DebugFeature`).
 
 ## Exemplo
 
@@ -26,8 +28,8 @@ fun main() = runSkikoWindow(title = "bouncing-ball") {
             radius = 32f
             color = Color.RED
         }
-        add<BoundsOverlay> {
-            color = Color.BLUE
+        debug {                       // FPS (F1) + bounds (F2)...
+            add(::VelocityOverlay)    // ...mais uma feature do jogo (F3)
         }
     }
 }

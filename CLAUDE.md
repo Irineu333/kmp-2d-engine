@@ -29,12 +29,14 @@ Only `pong` targets the browser so far; the other examples are JVM-only.
 ```
 example/*  ─→  core-dsl ──────→ core
 example/*  ─→  runtime-skiko ─→ core-dsl ─→ core
+example/*  ─→  core-debug ────→ core-dsl ─→ core
 ```
 
 | Module | Role |
 |---|---|
 | `core` | Nodes, scene tree, `SceneManager` (named scenes + runtime switching), abstract `Renderer`, frame clock, value types (`Vec2`, `Color`, `Rect`, `Size`). Pure `commonMain`; targets `jvm` + `wasmJs`. |
 | `core-dsl` | Scene-building DSL via `ScenesBuilder`. `commonMain` exposes a reflection-free builder (`add(::Node) { }`); `jvmMain` adds the reflection-based `add<Node>()` overload (`kotlin-reflect`, JVM-only). |
+| `core-debug` | Optional, backend-agnostic debug toolkit. `DebugFeature` (toggleable `Node` base with a keyboard `shortcut`), `DebugLayer` (container) and built-in `FpsFeature` (F1) / `BoundsFeature` (F2). The `Node.debug { }` builder injects a `DebugLayer` under a scene root; games drop their own `DebugFeature`s into the block. Pure `commonMain`; targets `jvm` + `wasmJs`. Engine code never references it — debug is fully opt-in. |
 | `runtime-skiko` | `Renderer` + window implementation via Skiko. Shared Skia drawing (`SkikoRenderer`, `SceneRenderDelegate`) lives in `commonMain`; the window/keyboard layer is per-target: `jvmMain` (Swing/AWT `SkikoWindow`), `wasmJsMain` (`SkikoCanvas`: a `SkiaLayer` on an HTML `<canvas>` + DOM key events). Exposes `runSkikoWindow { scene(...) { } }` (JVM) / `runSkikoCanvas { scene(...) { } }` (wasm). |
 | `example/hello-world`, `example/bouncing-ball`, `example/colliding-balls`, `example/keyboard-input` | JVM-only sample apps. |
 | `example/pong` | Sample app on both `jvm` and `wasmJs`; nodes + scenes in `commonMain`, platform `Main.kt` per target. |
@@ -53,6 +55,12 @@ example/*  ─→  runtime-skiko ─→ core-dsl ─→ core
 - **Dependency direction is one-way:** `example → runtime-skiko → core-dsl → core`
   (examples also depend on `core-dsl` directly). `core` knows nothing about the DSL
   or any runtime.
+- **Debug is decoupled and opt-in.** It lives in its own `core-debug` module; `core`/
+  `SceneTree` have no debug concept. `DebugFeature`/`DebugLayer` are plain `Node`s,
+  so the regular tree walk drives them — features self-toggle by reading
+  `tree.input` and gate their own `draw`/`process`. Generic overlays (FPS, bounds)
+  ship in `core-debug`; game-specific ones (e.g. a velocity arrow tied to a game's `Ball`)
+  stay in the example and just subclass `DebugFeature`.
 
 ## Conventions
 

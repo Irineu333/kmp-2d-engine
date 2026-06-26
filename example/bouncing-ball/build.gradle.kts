@@ -26,6 +26,7 @@ kotlin {
             implementation(project(":core"))
             implementation(project(":runtime-skiko"))
             implementation(project(":core-dsl"))
+            implementation(project(":core-debug"))
         }
     }
 }

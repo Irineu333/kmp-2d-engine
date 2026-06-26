@@ -2,28 +2,23 @@ package com.neoutils.example.bouncing
 
 import com.neoutils.core.graphics.Color
 import com.neoutils.core.graphics.Renderer
+import com.neoutils.core.input.Key
 import com.neoutils.core.math.Vec2
 import com.neoutils.core.scene.Node
+import com.neoutils.debug.DebugFeature
 import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sin
 
-/**
- * Debug overlay that walks the whole scene tree and draws the velocity vector
- * of every [Ball] it finds, no matter where it sits in the tree.
- *
- * The arrow starts at the ball's global position and its length is the velocity
- * scaled by [scale]; with `scale = 1f` it shows where the ball travels in one
- * second, so smaller values keep the arrow compact on screen.
- */
-class VelocityOverlay : Node() {
+/** Game-specific feature: draws the velocity vector of every [Ball] in the tree (F3). */
+class VelocityOverlay : DebugFeature(shortcut = Key.F3, enabled = false) {
 
     var color: Color = Color.GREEN
     var scale: Float = 0.2f
     var width: Float = 2f
     var headLength: Float = 12f
 
-    override fun onDraw(renderer: Renderer) {
+    override fun draw(renderer: Renderer) {
         val root = tree?.root ?: return
         drawVelocities(root, renderer)
     }

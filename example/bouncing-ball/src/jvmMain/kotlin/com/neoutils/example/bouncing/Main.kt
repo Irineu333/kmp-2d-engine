@@ -1,7 +1,7 @@
 package com.neoutils.example.bouncing
 
 import com.neoutils.core.graphics.Color
-import com.neoutils.core.scene.BoundsOverlay
+import com.neoutils.debug.debug
 import com.neoutils.dsl.add
 import com.neoutils.skiko.runSkikoWindow
 
@@ -13,11 +13,10 @@ fun main() = runSkikoWindow(
             radius = 32f
             color = Color.RED
         }
-        add<BoundsOverlay> {
-            color = Color.BLUE
-        }
-        add<VelocityOverlay> {
-            color = Color.GREEN
+        debug {
+            add<VelocityOverlay> {
+                color = Color.GREEN
+            }
         }
     }
 }

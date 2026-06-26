@@ -1,6 +1,6 @@
 package com.neoutils.example
 
-import com.neoutils.core.scene.BoundsOverlay
+import com.neoutils.debug.debug
 import com.neoutils.dsl.add
 import com.neoutils.skiko.runSkikoWindow
 
@@ -13,6 +13,6 @@ fun main() = runSkikoWindow(
                 text = "Hello, World!"
             }
         }
-        add<BoundsOverlay>()
+        debug()
     }
 }

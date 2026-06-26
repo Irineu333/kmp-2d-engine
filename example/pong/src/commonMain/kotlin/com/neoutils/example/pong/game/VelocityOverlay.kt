@@ -2,20 +2,22 @@ package com.neoutils.example.pong.game
 
 import com.neoutils.core.graphics.Color
 import com.neoutils.core.graphics.Renderer
+import com.neoutils.core.input.Key
 import com.neoutils.core.math.Vec2
 import com.neoutils.core.scene.Node
+import com.neoutils.debug.DebugFeature
 import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sin
 
-class VelocityOverlay : Node() {
+class VelocityOverlay : DebugFeature(shortcut = Key.F3, enabled = false) {
 
     var color: Color = Color.GREEN
     var scale: Float = 0.12f
     var width: Float = 2f
     var headLength: Float = 12f
 
-    override fun onDraw(renderer: Renderer) {
+    override fun draw(renderer: Renderer) {
         drawVelocities(tree?.root ?: return, renderer)
     }
 
