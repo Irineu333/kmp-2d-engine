@@ -1,7 +1,7 @@
 package com.neoutils.dsl
 
 import com.neoutils.core.scene.Game
-import com.neoutils.core.scene.Node
+import com.neoutils.core.node.Node
 import com.neoutils.core.scene.SceneFactory
 import com.neoutils.core.scene.SceneTree
 

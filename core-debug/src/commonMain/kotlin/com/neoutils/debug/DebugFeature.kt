@@ -4,7 +4,7 @@ import com.neoutils.core.graphics.Renderer
 import com.neoutils.core.input.Input
 import com.neoutils.core.input.InputEvent
 import com.neoutils.core.input.Key
-import com.neoutils.core.scene.Node
+import com.neoutils.core.node.Node
 
 /**
  * A toggleable debug capability. Features are plain [Node]s driven by the regular

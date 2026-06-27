@@ -1,5 +1,7 @@
 package com.neoutils.core.scene
 
+import com.neoutils.core.node.Node
+
 import com.neoutils.core.input.InputEvent
 import com.neoutils.core.input.Key
 import com.neoutils.core.input.KeyEvent

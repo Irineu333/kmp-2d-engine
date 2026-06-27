@@ -1,4 +1,4 @@
-package com.neoutils.core.scene
+package com.neoutils.core.node
 
 import com.neoutils.core.graphics.Color
 import com.neoutils.core.graphics.Renderer

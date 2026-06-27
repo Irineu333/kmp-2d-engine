@@ -1,6 +1,6 @@
 package com.neoutils.dsl
 
-import com.neoutils.core.scene.Node
+import com.neoutils.core.node.Node
 import kotlin.reflect.full.createInstance
 
 /**

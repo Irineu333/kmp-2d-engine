@@ -8,8 +8,8 @@ import com.neoutils.core.input.Key
 import com.neoutils.core.math.Rect
 import com.neoutils.core.math.Size
 import com.neoutils.core.math.Vec2
-import com.neoutils.core.scene.Node
-import com.neoutils.core.scene.Node2D
+import com.neoutils.core.node.Node
+import com.neoutils.core.node.Node2D
 import com.neoutils.example.pong.game.GameMode
 
 /**

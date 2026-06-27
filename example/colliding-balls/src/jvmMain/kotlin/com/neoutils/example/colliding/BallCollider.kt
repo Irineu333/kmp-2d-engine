@@ -1,6 +1,6 @@
 package com.neoutils.example.colliding
 
-import com.neoutils.core.scene.Node
+import com.neoutils.core.node.Node
 
 class BallCollider : Node() {
 

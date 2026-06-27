@@ -2,7 +2,7 @@ package com.neoutils.example.pong.game
 
 import com.neoutils.core.input.Input
 import com.neoutils.core.input.Key
-import com.neoutils.core.scene.Node
+import com.neoutils.core.node.Node
 import kotlin.math.abs
 
 /** Per-frame vertical intent for a [Paddle]: -1f up, +1f down, 0f idle. */

@@ -6,7 +6,7 @@ import com.neoutils.core.graphics.Viewport
 import com.neoutils.core.math.Rect
 import com.neoutils.core.math.Size
 import com.neoutils.core.math.Vec2
-import com.neoutils.core.scene.Node2D
+import com.neoutils.core.node.Node2D
 import kotlin.math.PI
 import kotlin.random.Random
 

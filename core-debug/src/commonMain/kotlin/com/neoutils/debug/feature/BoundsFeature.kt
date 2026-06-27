@@ -3,8 +3,8 @@ package com.neoutils.debug.feature
 import com.neoutils.core.graphics.Color
 import com.neoutils.core.graphics.Renderer
 import com.neoutils.core.input.Key
-import com.neoutils.core.scene.Node
-import com.neoutils.core.scene.Node2D
+import com.neoutils.core.node.Node
+import com.neoutils.core.node.Node2D
 import com.neoutils.debug.DebugFeature
 
 /**

@@ -5,7 +5,7 @@ import com.neoutils.core.graphics.Viewport
 import com.neoutils.core.input.InputEvent
 import com.neoutils.core.input.KeyEvent
 import com.neoutils.core.math.Vec2
-import com.neoutils.core.scene.Label
+import com.neoutils.core.node.Label
 
 class KeyDisplay : Label() {
 

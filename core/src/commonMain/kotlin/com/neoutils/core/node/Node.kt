@@ -1,7 +1,8 @@
-package com.neoutils.core.scene
+package com.neoutils.core.node
 
 import com.neoutils.core.graphics.Renderer
 import com.neoutils.core.input.InputEvent
+import com.neoutils.core.scene.SceneTree
 
 open class Node {
 

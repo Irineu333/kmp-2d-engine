@@ -14,7 +14,7 @@ import javax.swing.SwingUtilities
 import javax.swing.WindowConstants
 
 class SkikoWindow(
-    private val title: String = "kmp-engine",
+    private val title: String,
     private val config: WindowSize = WindowSize()
 ) {
 
@@ -56,7 +56,7 @@ class SkikoWindow(
 }
 
 fun runSkikoWindow(
-    title: String = "kmp-engine",
+    title: String,
     size: WindowSize = WindowSize(),
     game: Game,
 ) {
@@ -64,7 +64,7 @@ fun runSkikoWindow(
 }
 
 fun runSkikoWindow(
-    title: String = "kmp-engine",
+    title: String,
     size: WindowSize = WindowSize(),
     block: GameBuilder.() -> Unit,
 ) = runSkikoWindow(title, size, game(block))

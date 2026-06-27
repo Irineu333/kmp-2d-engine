@@ -3,7 +3,7 @@ package com.neoutils.example.pong.menu
 import com.neoutils.core.graphics.Color
 import com.neoutils.core.graphics.Viewport
 import com.neoutils.core.math.Vec2
-import com.neoutils.core.scene.Label
+import com.neoutils.core.node.Label
 
 class MenuHint : Label() {
 

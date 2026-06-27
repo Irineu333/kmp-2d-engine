@@ -2,7 +2,7 @@ package com.neoutils.example.bouncing
 
 import com.neoutils.core.graphics.Color
 import com.neoutils.core.graphics.Viewport
-import com.neoutils.core.scene.Node2D
+import com.neoutils.core.node.Node2D
 import com.neoutils.core.math.Rect
 import com.neoutils.core.graphics.Renderer
 import com.neoutils.core.math.Size

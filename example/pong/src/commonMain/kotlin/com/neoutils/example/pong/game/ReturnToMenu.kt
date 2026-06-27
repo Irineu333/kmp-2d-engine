@@ -3,7 +3,7 @@ package com.neoutils.example.pong.game
 import com.neoutils.core.input.InputEvent
 import com.neoutils.core.input.Key
 import com.neoutils.core.input.KeyEvent
-import com.neoutils.core.scene.Node
+import com.neoutils.core.node.Node
 
 class ReturnToMenu : Node() {
 

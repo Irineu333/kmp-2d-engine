@@ -2,7 +2,7 @@ package com.neoutils.example.colliding
 
 import com.neoutils.core.graphics.Color
 import com.neoutils.core.scene.Game
-import com.neoutils.core.scene.Node
+import com.neoutils.core.node.Node
 import com.neoutils.core.scene.SceneTree
 import com.neoutils.debug.DebugLayer
 import com.neoutils.debug.feature.BoundsFeature

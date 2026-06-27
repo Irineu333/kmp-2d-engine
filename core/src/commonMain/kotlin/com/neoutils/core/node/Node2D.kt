@@ -1,4 +1,4 @@
-package com.neoutils.core.scene
+package com.neoutils.core.node
 
 import com.neoutils.core.math.Rect
 import com.neoutils.core.math.Vec2

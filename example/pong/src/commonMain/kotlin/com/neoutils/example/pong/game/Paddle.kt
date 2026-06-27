@@ -7,7 +7,7 @@ import com.neoutils.core.input.Key
 import com.neoutils.core.math.Rect
 import com.neoutils.core.math.Size
 import com.neoutils.core.math.Vec2
-import com.neoutils.core.scene.Node2D
+import com.neoutils.core.node.Node2D
 
 class Paddle : Node2D() {
 

@@ -3,7 +3,7 @@ package com.neoutils.example.pong.game
 import com.neoutils.core.graphics.Viewport
 import com.neoutils.core.input.Key
 import com.neoutils.core.math.Vec2
-import com.neoutils.core.scene.Node
+import com.neoutils.core.node.Node
 
 class Pong : Node() {
 

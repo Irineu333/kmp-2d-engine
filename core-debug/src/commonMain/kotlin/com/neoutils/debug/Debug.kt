@@ -1,6 +1,6 @@
 package com.neoutils.debug
 
-import com.neoutils.core.scene.Node
+import com.neoutils.core.node.Node
 import com.neoutils.debug.feature.BoundsFeature
 import com.neoutils.debug.feature.FpsFeature
 import com.neoutils.dsl.add

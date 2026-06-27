@@ -1,5 +1,7 @@
 package com.neoutils.core.scene
 
+import com.neoutils.core.node.Node
+
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
